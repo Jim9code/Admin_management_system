@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-management system</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="header">
+    <header> 
+        <div class="nav-bar">
+            <div class="appname"><div><h2>Jeth Management system</h2></div></div>
+            <div class="inputO">
+                <div class="inputin">
+                    <form action="/" method="POST" novalidate>
+                        <input type="search" name="search" placeholder="Search">
+                     <button type="submit">search</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+    <br><br>
+
+    <div class="table">
+        <div>
+            <center><div><a class="addbtn" href="/adduser" type="button">+ Add</a></div></center>
+        <div><h1>Users</h1></div>
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th style="border-right: none;">Action</th>
+                    </tr>
+    
+                    <tbody>
+                        <% rows.forEach((row , index) => { %>
+                            <tr>
+                                <td><%= index + 1 %></td>
+                                <td><%=row.first_name %></td>
+                                <td><%=row.last_name %></td>
+                                <td><%=row.email %></td>
+                                <td><%=row.phone  %></td>
+                                <td class="action">
+                                    <a href="/viewuser/<%=row.id %>" type="button"> view</a>
+                                    <a href="/edituser/<%= row.id %>" type="button"> Edit</a>
+                                    <a href="/deleteuser/<%=row.id %>" type="button">Delete </a>
+                                </td>
+                            </tr> 
+                        <% }) %>
+                    </tbody>
+    
+                </table> 
+                
+           
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit-user</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-management system</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <header> 
+        <div class="nav-bar">
+            <div class="appname"><div><h2>Jeth Management system</h2></div></div>
+            <div class="inputO">
+                <div class="inputin">
+                    <form action="/" method="POST" novalidate>
+                        <input type="search" name="search" placeholder="Search">
+                     <button type="submit">search</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+    <br><br>
+
+    <div class="table">
+        
+        <div>
+            
+            <span><a style="color: blue; background: transparent; border: none; " href="/">Home</a></span>
+            <span style="font-size: 30px;">/</span>
+            <span>Edit User No : <%=id%> </span>
+
+
+            <% if (alert) { %>
+                <div id="alert" class="alert"><%=alert %> <button type="reset" id="alertbtn">close</button></div>
+            <% } else {  %> <div  class="alerte"><%=alert %></div> <% } %>
+                 
+                 
+            <br><br>
+            <div class="addform">
+
+                   
+                    <% rows.forEach((row) => { %>
+                        <Form action="/edituser/<%=id%>" method="POST">
+                        <input value="<%=row.first_name%>" class="formput" type="text"  name="first_name"placeholder="First Name"> 
+                        <input value="<%=row.last_name %>" class="formput" type="text" name="last_name" placeholder="Last Name">
+                        <br><br>
+                        <input value="<%=row.email %>" class="formput" type="email" name="email" placeholder="Email">
+                        <input value="<%=row.phone %>" class="formput" type="number" name="phone" >
+                        <br><br>
+                        <div class="commentdiv">
+                        <textarea class="formcomment" name="comments"  cols="30"><%=row.comments %></textarea>
+                    </div>
+                    <br><br>
+                    <div class="submitdiv">
+                        <Button class="formsubbtn" type="submit">Update</Button>
+                    </div>
+                </Form></div>
+                    <% }) %>
+
+
+        </div>
+    </div>
+    
+    <script src="/alert.js"></script>
+</body>
+</html>
+    
+</body>
+</html>
